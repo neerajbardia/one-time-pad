@@ -1,7 +1,9 @@
-import random														#this library is used to create the key, as we need to have a key that is as long as the plaintext.
+#one time pad
+
+import random						#this library is used to create the key, as we need to have a key that is as long as the plaintext.
 import string
 
-def key_func(plain, key): 											#function to generate the key							
+def key_func(plain, key): 				#function to generate the key							
     key=list(key)
     if len(plain)==len(key):
         return(key)
@@ -11,7 +13,7 @@ def key_func(plain, key): 											#function to generate the key
             key.append(random.choice(rand))
     return(''.join(key))
 
-def encryption(plaintext, key): 									#Function that carries out the encryption process
+def encryption(plaintext, key): 			#Function that carries out the encryption process
 	cipher_text = [] 
 	for i in range(len(plaintext)): 
 		x=(ord(plaintext[i])+ord(key[i])) % 26
